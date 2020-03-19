@@ -3,6 +3,7 @@ package computer.entity;
 import lombok.*;
 
 @Data
+@ToString
 public abstract class Computer {
 
     private String name;
