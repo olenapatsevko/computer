@@ -1,4 +1,4 @@
-package computer;
+package computer.exceptions.annotations;
 
 import java.lang.annotation.*;
 
