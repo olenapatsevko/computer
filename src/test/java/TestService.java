@@ -40,6 +40,7 @@ public class TestService {
     @Test(expected = InvalidDataException.class)
     public void exceptionDoubleTest() {
         lenient().when(view.inputDouble(anyString())).thenThrow(InvalidDataException.class);
+
         creatingService.create();
     }
 
