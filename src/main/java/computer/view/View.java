@@ -1,43 +1,29 @@
 package computer.view;
 
-import computer.exceptions.InvalidDataException;
+import computer.utility.ScanUtil;
 import lombok.Data;
 
-import java.util.Scanner;
-
 @Data
-public abstract class View {
+public class View {
 
-    private final Scanner in = new Scanner(System.in);
 
-    public abstract String inputString(String s);
+    public String inputString(String s) {
+        print(s);
+        return ScanUtil.scanString();
+    }
 
-    public abstract double inputDouble(String s);
+    public double inputDouble(String s) {
+        print(s);
+        return ScanUtil.scanDouble();
+    }
 
-    public abstract int inputInt(String s);
+    public int inputInt(String s) {
+        print(s);
+        return ScanUtil.scanInt();
+    }
 
     public void print(String s) {
         System.out.println(s);
-    }
-
-    public String scanString() {
-        return in.nextLine();
-    }
-
-    public int scanInt() {
-        try {
-            return Integer.parseInt(scanString());
-        } catch (Exception e) {
-            throw new InvalidDataException(" integer parsing failed ");
-        }
-    }
-
-    public double scanDouble() {
-        try {
-            return Double.parseDouble(scanString());
-        } catch (Exception e) {
-            throw new InvalidDataException("double parsing failed");
-        }
     }
 
 
