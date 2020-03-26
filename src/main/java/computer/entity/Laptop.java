@@ -12,7 +12,7 @@ public class Laptop extends Computer implements Machine {
     private double weight;
     private double battery;
 
-    private Laptop(Builder builder) {
+    protected Laptop(Builder builder) {
         setName(builder.name);
         setProcessorFrequency(builder.processorFrequency);
         setQuantityOfKernel(builder.quantityOfKernel);

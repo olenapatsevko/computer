@@ -15,6 +15,6 @@ public class CreateCommand implements Command {
 
     @Override
     public void execute(List<Laptop> laptops) {
-
+        laptops.add(createService.create());
     }
 }
