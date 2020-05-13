@@ -6,7 +6,7 @@
     <bean name="command" class="computer.controller.commands.Command" abstract="true"/>
     <bean name="editCommand" class="computer.controller.commands.EditCommand" depends-on="editService">
         <constructor-arg name="editService" ref="editService"/>
-        <constructor-arg name="logger" value="#{Logger.getAnonymousLogger()}"/>
+        <constructor-arg name="logger" value="global"/>
     </bean>
     <bean name="incrementCommand" class="computer.controller.commands.IncrementCommand" depends-on="editService">
         <constructor-arg name="editService" ref="editService"/>

@@ -6,10 +6,12 @@ import java.util.Scanner;
 
 public class ScanUtil {
 
-    public static Scanner in ;
+    private static final Scanner in = new Scanner(System.in);
+
+    private ScanUtil(){}
 
     public static String scanString() {
-        return in.nextLine();
+        return in.next();
     }
 
     public static int scanInt() {

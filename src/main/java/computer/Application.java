@@ -8,7 +8,7 @@ public class Application {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("config.xml", "command.xml", "entity.xml");
-
+        context.getBean(MainController.class).run(context);
 
     }
 }
