@@ -1,40 +1,31 @@
 package computer.controller;
 
-import computer.entity.Laptop;
-import computer.service.EditService;
+import computer.controller.commands.Command;
 import computer.utility.ScanUtil;
 import computer.view.View;
+import lombok.Data;
+import org.springframework.context.ApplicationContext;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.Map;
 
+@Data
 public class CommandFabric {
-    private Command command;
-    public final View view = ApplicationInjector.getView();
 
-    public void createCommand(List<Laptop> laptops) {
-        view.print("Enter command "+ Arrays.toString(Actions.values()));
+    private View view;
+    private Map<Actions, Command> actions;
+
+    CommandFabric(View view) {
+        this.view = view;
+    }
+
+    public void createCommand(ApplicationContext applicationContext) {
+        view.print("Enter command " + Arrays.toString(Actions.values()));
         try {
-            switch (Actions.valueOf(ScanUtil.scanString().toUpperCase())) {
-                case CREATE:
-                    command = new CreateCommand(ApplicationInjector.getCreatingService());
-                    break;
-                case PRINT:
-                    command = new PrintCommand(view);
-                    break;
-                case EDIT:
-                    command = new EditCommand(EditService.getInstance());
-                    break;
-                case INCREMENT:
-                    command = new IncrementCommand(EditService.getInstance());
-                    break;
-                case EXIT:
-                    System.exit(0);
-            }
-            command.execute(laptops);
+            actions.get(Actions.valueOf(ScanUtil.scanString().toUpperCase())).execute(applicationContext);
         } catch (Exception e) {
             view.print("invalid input");
         }
-}
+    }
 
 }

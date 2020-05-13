@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<import resource="command.xml"/>
+    <bean name="app" class="computer.Application"/>
+
+    <bean name="editService"  class="computer.service.EditService" depends-on="view">
+        <constructor-arg name="view" ref="view"/>
+    </bean>
+
+    <bean name="mainController"  class="computer.controller.MainController" depends-on="view,commandFabric">
+        <constructor-arg name="view" ref="view"/>
+        <constructor-arg name="commandFabric" ref="commandFabric"/>
+        <constructor-arg name="laptops" value="#{new java.util.ArrayList()}"/>
+    </bean>
+
+    <bean name="view" id="view" class="computer.view.View"/>
+
+</beans>

@@ -1,27 +1,31 @@
 package computer.service;
 
-import computer.controller.ApplicationInjector;
 import computer.entity.Laptop;
 import computer.utility.ScanUtil;
 import computer.view.View;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Data
+@NoArgsConstructor
 public class EditService {
     private static EditService instance;
-    private final View view;
-    private final CreatingService creatingService;
+    private  View view;
+
 
     public static EditService getInstance(){
         if (instance == null){
-            instance = new EditService(ApplicationInjector.getView() , ApplicationInjector.getCreatingService());
+            instance = new EditService();
         }
         return instance;
     }
 
-    private EditService(View view, CreatingService creatingService) {
+    private EditService(View view) {
         this.view = view;
-        this.creatingService = creatingService;
+
     }
 
     public int findEditableElement() {
@@ -36,6 +40,6 @@ public class EditService {
 
     private Laptop elementChange(Laptop laptop){
         view.print(laptop.toString());
-        return creatingService.create();
+        return null;
     }
 }

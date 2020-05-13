@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+<bean name="laptop" class="computer.entity.Laptop" scope="prototype">
+    <constructor-arg name="name" value="#{view.inputString(name)}"/>
+    <constructor-arg name="battery" value="#{view.inputDouble(battery)}"/>
+    <constructor-arg name="computerDataStorage" value="#{view.inputInt(computerDataStorage)}"/>
+    <constructor-arg name="weight" value="#{view.inputDouble(weight)}"/>
+    <constructor-arg name="screen" value="#{view.inputDouble(screen)}"/>
+    <constructor-arg name="quantityOfKernel" value="#{view.inputInt(quantityOfKernel)}"/>
+    <constructor-arg name="processorFrequency" value="#{view.inputInt(processorFrequency)}"/>
+    <constructor-arg name="computerMemory" value="#{view.inputInt(computerMemory)}"/>
+</bean>
+
+
+
+</beans>

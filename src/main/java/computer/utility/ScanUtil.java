@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ScanUtil {
 
-    public static Scanner in = new Scanner(System.in);
+    public static Scanner in ;
 
     public static String scanString() {
         return in.nextLine();

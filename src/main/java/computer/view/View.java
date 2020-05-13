@@ -7,6 +7,9 @@ import lombok.Data;
 public class View {
 
 
+    public View() {
+    }
+
     public String inputString(String s) {
         print(s);
         return ScanUtil.scanString();

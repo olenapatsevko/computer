@@ -2,19 +2,24 @@ package computer.controller;
 
 import computer.entity.Laptop;
 import computer.view.View;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.context.ApplicationContext;
 
-import java.util.ArrayList;
 import java.util.List;
 
+@Data
+@AllArgsConstructor
 public class MainController {
 
-    public final View view = ApplicationInjector.getView();
-    public final List<Laptop> laptops = new ArrayList<>();
+    private  View view ;
+    private  List<Laptop> laptops ;
+    private CommandFabric commandFabric;
 
 
-    public void run() {
+    public void run(ApplicationContext applicationContext) {
         while (true) {
-            ApplicationInjector.getCommandFabric().createCommand(laptops);
+            commandFabric.createCommand(applicationContext);
         }
     }
 }

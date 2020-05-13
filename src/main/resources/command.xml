@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean name="command" class="computer.controller.commands.Command" abstract="true"/>
+    <bean name="editCommand" class="computer.controller.commands.EditCommand" depends-on="editService">
+        <constructor-arg name="editService" ref="editService"/>
+        <constructor-arg name="logger" value="#{Logger.getAnonymousLogger()}"/>
+    </bean>
+    <bean name="incrementCommand" class="computer.controller.commands.IncrementCommand" depends-on="editService">
+        <constructor-arg name="editService" ref="editService"/>
+    </bean>
+    <bean name="printCommand" class="computer.controller.commands.PrintCommand" depends-on="view">
+        <constructor-arg ref="view"/>
+    </bean>
+    <bean name="createCommand" class="computer.controller.commands.CreateCommand"/>
+    <bean name="exitCommand" class="computer.controller.commands.ExitCommand"/>
+    <bean name="commandFabric" class="computer.controller.CommandFabric">
+        <constructor-arg name="view" ref="view"/>
+        <property name="actions" ref="actions"/>
+    </bean>
+
+    <util:map id="actions" map-class="java.util.HashMap" key-type="computer.controller.Actions"
+              value-type="computer.controller.commands.Command">
+        <entry key="CREATE" value-ref="createCommand"/>
+        <entry key="EDIT" value-ref="editCommand"/>
+        <entry key="INCREMENT" value-ref="incrementCommand"/>
+        <entry key="PRINT" value-ref="printCommand"/>
+        <entry key="EXIT" value-ref="exitCommand"/>
+
+    </util:map>
+
+</beans>
