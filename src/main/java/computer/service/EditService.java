@@ -3,7 +3,6 @@ package computer.service;
 import computer.entity.Laptop;
 import computer.utility.ScanUtil;
 import computer.view.View;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
