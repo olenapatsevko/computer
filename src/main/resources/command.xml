@@ -14,7 +14,9 @@
     <bean name="printCommand" class="computer.controller.commands.PrintCommand" depends-on="view">
         <constructor-arg ref="view"/>
     </bean>
-    <bean name="createCommand" class="computer.controller.commands.CreateCommand"/>
+    <bean name="createCommand" class="computer.controller.commands.CreateCommand">
+    <constructor-arg ref="createService"/>
+    </bean>
     <bean name="exitCommand" class="computer.controller.commands.ExitCommand"/>
     <bean name="commandFabric" class="computer.controller.CommandFabric">
         <constructor-arg name="view" ref="view"/>

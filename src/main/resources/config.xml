@@ -16,5 +16,7 @@
     </bean>
 
     <bean name="view" id="view" class="computer.view.View"/>
-
+    <bean name="createService" class="computer.service.CreateService" depends-on="view">
+    <constructor-arg ref="view"/>
+    </bean>
 </beans>
