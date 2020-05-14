@@ -1,14 +1,14 @@
 package computer;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import computer.controller.MainController;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
+@SpringBootApplication
 public class Application {
 
-    public static void main(String[] args) {
-        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("config.xml", "command.xml", "entity.xml");
-        context.getBean(MainController.class).run(context);
+        public static void main(String[] args) {
+            SpringApplication.run(Application.class, args);
+        }
 
-    }
 }
+
+
