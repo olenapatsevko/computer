@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default" role="navigation" style="border-radius: 5px" xmlns:th="http://www.w3.org/1999/xhtml">
+    <!-- Brand and toggle get grouped for better mobile display -->
+
+    <div class="navbar-center navbar-brand  shadow p-3 mb-5 bg-white rounded "
+         style="width: 100%; display: flex; align-content: center; justify-content: space-between;">
+        <a class="navbar-brand" style="display: flex; align-items: center;"
+        th:href="@{/login}" th:text="#{login.page}"></a>
+
+        <a class="navbar-brand" style="display: flex; align-items: center;"
+           th:href="@{/registration}" th:text="#{register.page}"></a>
+
+
+        <a class="navbar-brand"  style="font-size: 3rem"  th:text="#{delivery.system}"></a>
+
+        <div class="navbar-center navbar-brand"  style="display: flex; align-items: center;">
+
+
+            <a class="navbar-brand ua-icon" href="?lang=en">
+                <option data-content='<span class="flag-icon flag-icon-us"></span> English' th:text="#{lang.en}"></option>
+            </a>
+            <a class="navbar-brand ua-icon" href="?lang=ua">
+                <option  data-content='<span class="flag-icon flag-icon-ua"></span> Ukrainian' th:text="#{lang.ua}"></option>
+            </a>
+
+
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+
+        </div><!-- /.navbar-collapse -->
+
+    </div>
+</nav>
+
+

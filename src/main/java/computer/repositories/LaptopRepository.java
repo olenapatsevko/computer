@@ -1,0 +1,14 @@
+package computer.repositories;
+
+import computer.entity.Laptop;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface LaptopRepository extends CrudRepository<Laptop, Long> {
+    Optional<Laptop> findByName(String name);
+
+
+}

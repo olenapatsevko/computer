@@ -3,37 +3,30 @@ package computer.entity;
 import computer.exceptions.annotations.Call;
 import lombok.*;
 
+import javax.persistence.*;
+
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Data
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = false)
-public class Laptop extends Computer implements Machine {
+@NoArgsConstructor
+@Entity
+@Table(name = "laptop")
+public class Laptop  {
+
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "id")
+    private long id;
 
     private double screen;
     private double weight;
     private double battery;
 
-    public Laptop(String name,
-                  int processorFrequency,
-                  int quantityOfKernel,
-                  int computerDataStorage,
-                  int computerMemory,
-                  double screen,
-                  double weight,
-                  double battery) {
-        super(name, processorFrequency, quantityOfKernel, computerDataStorage, computerMemory);
-        this.screen = screen;
-        this.weight = weight;
-        this.battery = battery;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Computer computer;
+
+
     }
 
-
-
-    @Call
-    public void increment() {
-        this.setScreen(this.getScreen() + 1);
-    }
-
-
-
-
-}

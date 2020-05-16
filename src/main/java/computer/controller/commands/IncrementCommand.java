@@ -21,6 +21,6 @@ public class IncrementCommand implements Command {
     @Override
     public void execute(ApplicationContext applicationContext) {
         int index = editService.findEditableElement();
-        applicationContext.getBean(MainController.class).getLaptops().get(index).increment();
+        applicationContext.getBean(MainController.class).getLaptops().get(index);
     }
 }

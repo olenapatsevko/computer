@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title th:text="#{admin.personal.cabinet}"></title>
+    <link th:href="@{/base/css/styles.css}" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+          crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+            crossorigin="anonymous"></script>
+</head>
+<body class="sb-nav-fixed">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark ">
+    <a class="navbar-brand" th:text="#{delivery.system}"></a>
+
+
+    <!-- Language change -->
+    <a class="navbar-brand ua-icon" href="?lang=en">
+        <option data-content='<span class="flag-icon flag-icon-us"></span> English' th:text="#{lang.en}"></option>
+    </a>
+    <a class="navbar-brand ua-icon" href="?lang=ua">
+        <option  data-content='<span class="flag-icon flag-icon-ua"></span> Ukrainian' th:text="#{lang.ua}"></option>
+    </a>
+
+    <!-- Navbar-->
+    <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <em class="fas fa-user fa-fw"></em></a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" th:href="@{/logout}" th:text="#{logout}"> </a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<div id="layoutSidenav">
+
+
+    <main>
+        <div class="container-fluid" style="margin-top: 10%;">
+            <h1 class="mt-4" th:text="#{personal.cabinet}"></h1>
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-4" th:text="#{order.delivery}"></h3></div>
+                                <div class="card-body">
+                                    <form role="form" method="post"
+                                          th:action="@{/make-order}">
+
+                                        <div class="form-group">
+                                            <label for="departure" th:text="#{departure}"></label>
+                                            <select class="form-control" id="departure" name="departure">
+                                                <!--                                                <c:forEach items="${towns}" var="town">-->
+                                                <!--                                                    <option> ${town} </option>-->
+                                                <!--                                                </c:forEach>-->
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="destination" th:text="#{destination}"></label>
+                                            <select class="form-control" id="destination" name="destination">
+                                                <!--                                                <c:forEach items="${towns}" var="town">-->
+                                                <!--                                                    <option><c:out value="${town}"/></option>-->
+                                                <!--                                                </c:forEach>-->
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="material" th:text="#{shipment.material}"></label>
+                                            <select class="form-control" id="material" name="material">
+                                                <!--                                                <c:forEach items="${materials}" var="material">-->
+                                                <!--                                                    <option><c:out value="${material}"/></option>-->
+                                                <!--                                                </c:forEach>-->
+                                            </select>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-3 mb-4">
+                                                <label for="weight" th:text="#{weight}"></label>
+                                                <input type="number" class="form-control" name="weight" id="weight"
+                                                       min="0" th:placeholder="#{weight}" required>
+                                                <div class="invalid-feedback" th:text="#{please.provide.valid.value}"></div>
+                                            </div>
+                                            <div class="col-md-3 mb-4">
+                                                <label for="width" th:text="#{width}"></label>
+                                                <input type="number" class="form-control" name="width" id="width"
+                                                       min="0" th:placeholder="#{width}" required>
+                                                <div class="invalid-feedback" th:text="#{please.provide.valid.value}">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 mb-4">
+                                                <label for="length" th:text="#{length}"></label>
+                                                <input type="number" class="form-control" id="length" name="length"
+                                                       min="0" th:placeholder="#{length}" required>
+                                                <div class="invalid-feedback" th:text="#{please.provide.valid.value}">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 mb-4">
+                                                <label for="height"  th:text="#{height}"></label>
+                                                <input type="number" class="form-control" id="height" name="height"
+                                                       min="0" th:placeholder="#{height}" required>
+                                                <div class="invalid-feedback" th:text="#{please.provide.valid.value}">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="address" th:text="#{address}"></label>
+                                                <input class="form-control" id="address" name="address" type="text" th:placeholder="#{delivery.order}">
+                                            </div>
+                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"
+                                                 style="width: 100%;">
+                                                <button type="submit" class="btn btn-primary" th:text="#{delivery.order}">
+
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!--                <div class="card mb-4" style="width: 100%;">-->
+<!--                    <div class="card-header" style="width: 100%;"><em class="fas fa-table mr-1"></em><fmt:message key="user.bills"/></div>-->
+<!--                    <div class="card-body" style="width: 100%;" >-->
+<!--                        <div class="table-responsive" style="width: 100%;">-->
+                            <!--                            <table class="table table-bordered" id="dataTable" name="bills" width="100%"  cellspacing="0">-->
+                            <!--                                <thead>-->
+                            <!--                                <tr>-->
+                            <!--                                    <th><fmt:message key="table.id"/></th>-->
+                            <!--                                    <th><fmt:message key="table.payment"/></th>-->
+                            <!--                                    <th><fmt:message key="table.delivery"/></th>-->
+                            <!--                                    <th><fmt:message key="table.size"/></th>-->
+                            <!--                                    <th><fmt:message key="table.weight"/></th>-->
+                            <!--                                    <th><fmt:message key="table.total.price"/></th>-->
+                            <!--                                    <th><fmt:message key="table.receive.date"/></th>-->
+                            <!--                                </tr>-->
+                            <!--                                </thead>-->
+                            <!--                                <tfoot>-->
+                            <!--                                <tr>-->
+                            <!--                                    <th><fmt:message key="table.id"/></th>-->
+                            <!--                                    <th><fmt:message key="table.payment"/></th>-->
+                            <!--                                    <th><fmt:message key="table.delivery"/></th>-->
+                            <!--                                    <th><fmt:message key="table.size"/></th>-->
+                            <!--                                    <th><fmt:message key="table.weight"/></th>-->
+                            <!--                                    <th><fmt:message key="table.total.price"/></th>-->
+                            <!--                                    <th><fmt:message key="table.receive.date"/></th>-->
+                            <!--                                </tr>-->
+                            <!--                                </tfoot>-->
+                            <!--                                <tbody>-->
+                            <!--                                <c:forEach var="report" items="${bills}">-->
+                            <!--                                    <tr>-->
+                            <!--                                        <td><c:out value="${report.getId()}"/></td>-->
+
+                            <!--                                        <c:if test="${report.payment==false}">-->
+                            <!--                                            <td>-->
+                            <!--                                                <button type="button" class="btn btn-light"><a class="btn btn-light"-->
+                            <!--                                                                                               href="${pageContext.request.contextPath}/app/pay?id=${report.id}">-->
+                            <!--                                                    <c:out value="${report.payment}"/></a></button>-->
+                            <!--                                            </td>-->
+                            <!--                                        </c:if>-->
+
+                            <!--                                        <c:if test="${report.payment==true}">-->
+                            <!--                                            <td>-->
+                            <!--                                                <button type="button" class="btn btn-success"><a class="btn btn-success" href="#">-->
+                            <!--                                                    <c:out value="${report.payment}"/></a></button>-->
+                            <!--                                            </td>-->
+                            <!--                                        </c:if>-->
+
+                            <!--                                        <td><c:out value="${report.delivery.toString()}"/></td>-->
+                            <!--                                        <td><c:out value="${report.size}"/></td>-->
+                            <!--                                        <td><c:out value="${report.weight}"/></td>-->
+
+                            <!--                                        <td><a href="${pageContext.request.contextPath}/app/pay?bill=${report.id}">-->
+                            <!--                                            <c:out value="${report.totalValue}"/></a></td>-->
+
+                            <!--                                        <td><c:out value="${report.order.localDateTime}"/></td>-->
+                            <!--                                    </tr>-->
+                            <!--                                </c:forEach>-->
+                            <!--                                </tbody>-->
+                            <!--                            </table>-->
+
+
+                            <!--                            <nav>-->
+                            <!--                                <ul class="pagination ">-->
+
+                            <!--                                    <c:if test="${currentPage != 1}">-->
+                            <!--                                        <li class="page-item">-->
+                            <!--                                            <a class="page-link"-->
+                            <!--                                               href="${pageContext.request.contextPath}/app/personal-cabinet?currentPage=${currentPage - 1}">-->
+                            <!--                                                <fmt:message key="label.prev"/>-->
+                            <!--                                            </a>-->
+                            <!--                                        </li>-->
+                            <!--                                    </c:if>-->
+
+
+                            <!--                                    <c:forEach begin="1" end="${noOfPages}" var="i">-->
+                            <!--                                        <c:choose>-->
+                            <!--                                            <c:when test="${currentPage eq i}">-->
+                            <!--                                                <li class="page-item active">-->
+                            <!--                                                    <a class="page-link"-->
+                            <!--                                                       href="#"> ${i} </a>-->
+                            <!--                                                </li>-->
+                            <!--                                            </c:when>-->
+                            <!--                                            <c:otherwise>-->
+                            <!--                                                <li class="page-item">-->
+                            <!--                                                    <a class="page-link"-->
+                            <!--                                                       href="${pageContext.request.contextPath}/app/personal-cabinet?currentPage=${i}">${i}</a>-->
+                            <!--                                                </li>-->
+                            <!--                                            </c:otherwise>-->
+                            <!--                                        </c:choose>-->
+                            <!--                                    </c:forEach>-->
+
+
+                            <!--                                    <c:if test="${currentPage lt noOfPages}">-->
+                            <!--                                        <li class="page-item"><a class="page-link"-->
+                            <!--                                                                 href="${pageContext.request.contextPath}/app/personal-cabinet?currentPage=${currentPage + 1}">-->
+                            <!--                                            <fmt:message key="label.next"/>-->
+                            <!--                                        </a>-->
+                            <!--                                        </li>-->
+                            <!--                                    </c:if>-->
+                            <!--                                </ul>-->
+                            <!--                            </nav>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+
+        </div>
+    </main>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script  th:src="@{/base/js/scripts.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<%--<script  th:src="@{/base/assets/demo/chart-area-demo.js}"></script>--%>
+<%--<script  th:src="@{/base/assets/demo/chart-bar-demo.js}"></script>--%>
+<%--<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>--%>
+<%--<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>--%>
+<%--<script  th:src="@{/base/assets/demo/datatables-demo.js}"></script>--%>
+</body>
+</html>
