@@ -31,9 +31,9 @@ public class ApplicationController {
         return REDIRECT_RESULTS;
     }
 
-    @PutMapping("/edit/{id}")
-   public String editResult(@PathVariable Long id) {
-
+    @GetMapping("/edit/{id}")
+   public String editResult(@PathVariable Long id, Model model) {
+        
         return "update";
     }
 

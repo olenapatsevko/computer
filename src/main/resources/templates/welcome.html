@@ -80,7 +80,7 @@
 
                                 <td>
                                     <form id="editForm" method="post" th:action="@{/edit/{resultId}(resultId=${result.id})}">
-                                        <input name="_method" type="hidden" value="PUT">
+                                        <input name="_method" type="hidden" value="GET">
                                         <input name="id" th:value="${result.id}" type="hidden"/>
                                         <input class="border border-primary rounded bg-primary text-light" th:value="#{form.edit}"
                                                type="submit">

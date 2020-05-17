@@ -22,31 +22,21 @@
                     <div class="card-body">
                         <form role="form" method="post"
                               th:action="@{/make-order}">
-
                             <div class="form-group">
                                 <label for="departure" th:text="#{departure}"></label>
                                 <select class="form-control" id="departure" name="departure">
-                                    <!--                                                <c:forEach items="${towns}" var="town">-->
-                                    <!--                                                    <option> ${town} </option>-->
-                                    <!--                                                </c:forEach>-->
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="destination" th:text="#{destination}"></label>
                                 <select class="form-control" id="destination" name="destination">
-                                    <!--                                                <c:forEach items="${towns}" var="town">-->
-                                    <!--                                                    <option><c:out value="${town}"/></option>-->
-                                    <!--                                                </c:forEach>-->
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="material" th:text="#{shipment.material}"></label>
                                 <select class="form-control" id="material" name="material">
-                                    <!--                                                <c:forEach items="${materials}" var="material">-->
-                                    <!--                                                    <option><c:out value="${material}"/></option>-->
-                                    <!--                                                </c:forEach>-->
                                 </select>
                             </div>
                             <div class="form-row">
