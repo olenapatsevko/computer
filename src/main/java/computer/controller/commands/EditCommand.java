@@ -22,7 +22,7 @@ public class EditCommand implements Command {
     @Override
     public void execute(ApplicationContext applicationContext) {
         try {
-            editService.editElement(editService.findEditableElement(), applicationContext.getBean(MainController.class).getLaptops());
+
         } catch (IndexOutOfBoundsException e) {
             logger.warning("Invalid index entered in edit method");
         }

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Spring Boot Thymeleaf Hello World Example</title>
+    <title th:text="#{welcome}"></title>
     <link th:href="@{/css/styles.css}" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
             crossorigin="anonymous"></script>
@@ -19,10 +19,126 @@
 
 <main role="main" class="container">
 
-    <div class="starter-template">
+    <div class="container-fluid" style="margin-top: 10%;">
+        <h1 class="mt-4" th:text="#{computers}"></h1>
+        <div class="row">
+
+            <div class="card mb-4" style="width: 100%;">
+                <div class="card-header" style="width: 100%;" ><em class="fas fa-table mr-1"></em></div>
+                <div class="card-body" style="width: 100%;" >
+                    <div class="table-responsive" style="width: 100%;">
+                        <table class="table table-bordered" id="dataTable" width="100%"  cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th th:text="#{id}"></th>
+                                <th th:text="#{laptop.name}"></th>
+                                <th th:text="#{processorFrequency}"></th>
+                                <th th:text="#{quantityOfKernel}"></th>
+                                <th th:text="#{computerDataStorage}"></th>
+                                <th th:text="#{computerMemory}"></th>
+                                <th th:text="#{screen}"></th>
+                                <th th:text="#{weight}"></th>
+                                <th th:text="#{battery}"></th>
+                                <th th:text="#{delete}"></th>
+                                <th th:text="#{form.edit}"></th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th th:text="#{id}"></th>
+                                <th th:text="#{laptop.name}"></th>
+                                <th th:text="#{processorFrequency}"></th>
+                                <th th:text="#{quantityOfKernel}"></th>
+                                <th th:text="#{computerDataStorage}"></th>
+                                <th th:text="#{computerMemory}"></th>
+                                <th th:text="#{screen}"></th>
+                                <th th:text="#{weight}"></th>
+                                <th th:text="#{battery}"></th>
+                                <th th:text="#{delete}"></th>
+                                <th th:text="#{form.edit}"></th>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+                            <th:block th:each="result : ${results}">
+                                <tr>
+                                <tr>
+                                    <td th:text="${result.id}" > </td>
+                                    <td th:text="${result.computer.name}"> </td>
+                                    <td th:text="${result.computer.processorFrequency}"> </td>
+                                    <td th:text="${result.computer.quantityOfKernel}"> </td>
+                                    <td th:text="${result.computer.computerDataStorage}"> </td>
+                                    <td th:text="${result.computer.computerMemory}"> </td>
+                                    <td th:text="${result.screen}"> </td>
+                                    <td th:text="${result.weight}"> </td>
+                                    <td th:text="${result.battery}"> </td>
+                                    <td ><form id="removeForm" method="post" th:action="@{/delete/{resultId}(resultId=${result.id})}">
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <input name="id" th:value="${result.id}" type="hidden"/>
+                                        <input class="border border-primary rounded bg-primary text-light" th:value="#{form.remove}"
+                                               type="submit">
+                                    </form></td>
+
+                                <td>
+                                    <form id="editForm" method="post" th:action="@{/results/{resultId}(resultId=${result.id})}">
+                                        <input name="_method" type="hidden" value="PUT">
+                                        <input name="id" th:value="${result.id}" type="hidden"/>
+                                        <input class="border border-primary rounded bg-primary text-light" th:value="#{form.edit}"
+                                               type="submit">
+                                    </form>
+
+                                </tr>
+                                </tr>
+                            </th:block>
+                            </tbody>
+                        </table>
+
+<!--                        <nav>-->
+<!--                            <ul class="pagination">-->
+
+<!--                                <c:if test="${currentPage != 1}">-->
+<!--                                    <li class="page-item">-->
+<!--                                        <a class="page-link"-->
+<!--                                           href="${pageContext.request.contextPath}/app/personal-cabinet?currentPage=${currentPage - 1}">-->
+<!--                                            <fmt:message key="label.prev"/>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                </c:if>-->
+
+
+<!--                                <c:forEach begin="1" end="${noOfPages}" var="i">-->
+<!--                                    <c:choose>-->
+<!--                                        <c:when test="${currentPage eq i}">-->
+<!--                                            <li class="page-item active">-->
+<!--                                                <a class="page-link"-->
+<!--                                                   href="#"> ${i} </a>-->
+<!--                                            </li>-->
+<!--                                        </c:when>-->
+<!--                                        <c:otherwise>-->
+<!--                                            <li class="page-item">-->
+<!--                                                <a class="page-link"-->
+<!--                                                   href="${pageContext.request.contextPath}/app/personal-cabinet?currentPage=${i}">${i}</a>-->
+<!--                                            </li>-->
+<!--                                        </c:otherwise>-->
+<!--                                    </c:choose>-->
+<!--                                </c:forEach>-->
+
+
+<!--                                <c:if test="${currentPage lt noOfPages}">-->
+<!--                                    <li class="page-item"><a class="page-link"-->
+<!--                                                             href="${pageContext.request.contextPath}/app/personal-cabinet?currentPage=${currentPage + 1}">-->
+<!--                                        <fmt:message key="label.next"/>-->
+<!--                                    </a>-->
+<!--                                    </li>-->
+<!--                                </c:if>-->
+<!--                            </ul>-->
+<!--                        </nav>-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
-
 
 </main>
 <!-- /.container -->

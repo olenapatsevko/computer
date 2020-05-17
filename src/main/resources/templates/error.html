@@ -1,58 +1,186 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>404</title>
-</head>
-<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>404</title>
     <style type="text/css">
-        body{
-            font-family:Arial, Helvetica, sans-serif;
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
+        @import url('https://fonts.googleapis.com/css?family=Catamaran:400,800');
+        .error-container {
+            text-align: center;
+            font-size: 180px;
+            font-family: 'Catamaran', sans-serif;
+            font-weight: 800;
+            margin: 20px 15px;
         }
-        .wrap{
-            width:1000px;
-            margin:0 auto;
+        .error-container > span {
+            display: inline-block;
+            line-height: 0.7;
+            position: relative;
+            color: #FFB485;
         }
-        .logo{
-            width:430px;
-            position:absolute;
-            top:25%;
-            left:35%;
+        .error-container > span {
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
         }
-        p a{
-            color:#eee;
-            font-size:13px;
-            margin-left:30px;
-            padding:5px;
-            background:#FF3366;
-            text-decoration:none;
-            -webkit-border-radius:.3em;
-            -moz-border-radius:.3em;
-            border-radius:.3em;
+        .error-container > span:nth-of-type(1) {
+            color: #D1F2A5;
+            animation: colordancing 4s infinite;
         }
-        p a:hover{
-            color: #fff;
+        .error-container > span:nth-of-type(3) {
+            color: #F56991;
+            animation: colordancing2 4s infinite;
         }
-        .footer{
-            position:absolute;
-            bottom:10px;
-            right:10px;
-            font-size:12px;
-            color:#aaa;
+        .error-container > span:nth-of-type(2) {
+            width: 120px;
+            height: 120px;
+            border-radius: 999px;
         }
-        .footer a{
-            color:#666;
-            text-decoration:none;
+        .error-container > span:nth-of-type(2):before,
+        .error-container > span:nth-of-type(2):after {
+            border-radius: 0%;
+            content:"";
+            position: absolute;
+            top: 0; left: 0;
+            width: inherit; height: inherit;
+            border-radius: 999px;
+            box-shadow: inset 30px 0 0 rgba(209, 242, 165, 0.4),
+            inset 0 30px 0 rgba(239, 250, 180, 0.4),
+            inset -30px 0 0 rgba(255, 196, 140, 0.4),
+            inset 0 -30px 0 rgba(245, 105, 145, 0.4);
+            animation: shadowsdancing 4s infinite;
+        }
+        .error-container > span:nth-of-type(2):before {
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            transform: rotate(45deg);
         }
 
+        .screen-reader-text {
+            position: absolute;
+            top: -9999em;
+            left: -9999em;
+        }
+        @keyframes shadowsdancing {
+            0% {
+                box-shadow: inset 30px 0 0 rgba(209, 242, 165, 0.4),
+                inset 0 30px 0 rgba(239, 250, 180, 0.4),
+                inset -30px 0 0 rgba(255, 196, 140, 0.4),
+                inset 0 -30px 0 rgba(245, 105, 145, 0.4);
+            }
+            25% {
+                box-shadow: inset 30px 0 0 rgba(245, 105, 145, 0.4),
+                inset 0 30px 0 rgba(209, 242, 165, 0.4),
+                inset -30px 0 0 rgba(239, 250, 180, 0.4),
+                inset 0 -30px 0 rgba(255, 196, 140, 0.4);
+            }
+            50% {
+                box-shadow: inset 30px 0 0 rgba(255, 196, 140, 0.4),
+                inset 0 30px 0 rgba(245, 105, 145, 0.4),
+                inset -30px 0 0 rgba(209, 242, 165, 0.4),
+                inset 0 -30px 0 rgba(239, 250, 180, 0.4);
+            }
+            75% {
+                box-shadow: inset 30px 0 0 rgba(239, 250, 180, 0.4),
+                inset 0 30px 0 rgba(255, 196, 140, 0.4),
+                inset -30px 0 0 rgba(245, 105, 145, 0.4),
+                inset 0 -30px 0 rgba(209, 242, 165, 0.4);
+            }
+            100% {
+                box-shadow: inset 30px 0 0 rgba(209, 242, 165, 0.4),
+                inset 0 30px 0 rgba(239, 250, 180, 0.4),
+                inset -30px 0 0 rgba(255, 196, 140, 0.4),
+                inset 0 -30px 0 rgba(245, 105, 145, 0.4);
+            }
+        }
+        @keyframes colordancing {
+            0% {
+                color: #D1F2A5;
+            }
+            25% {
+                color: #F56991;
+            }
+            50% {
+                color: #FFC48C;
+            }
+            75% {
+                color: #EFFAB4;
+            }
+            100% {
+                color: #D1F2A5;
+            }
+        }
+        @keyframes colordancing2 {
+            0% {
+                color: #FFC48C;
+            }
+            25% {
+                color: #EFFAB4;
+            }
+            50% {
+                color: #D1F2A5;
+            }
+            75% {
+                color: #F56991;
+            }
+            100% {
+                color: #FFC48C;
+            }
+        }
+
+        /* demo stuff */
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #416475;
+            margin-bottom: 50px;
+        }
+        html, button, input, select, textarea {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            color: #92a4ad;
+        }
+        h1 {
+            text-align: center;
+            margin: 30px 15px;
+        }
+        .zoom-area {
+            max-width: 490px;
+            margin: 30px auto 30px;
+            font-size: 19px;
+            text-align: center;
+        }
+        .link-container {
+            text-align: center;
+        }
+        a.more-link {
+            text-transform: uppercase;
+            font-size: 13px;
+            background-color: #92a4ad;
+            padding: 10px 15px;
+            border-radius: 0;
+            color: #416475;
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            line-height: 1.5;
+            text-decoration: none;
+            margin-top: 50px;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
-<div class="wrap">
-    <div class="logo">
-        <img th:href= "@{/images/404.png}" alt=""  />
-        <p><a th:href="@{/welcome}">Go back to Home</a></p>
-    </div>
+
+<section class="error-container">
+    <span>4</span>
+    <span><span class="screen-reader-text">0</span></span>
+    <span>4</span>
+</section>
+<div class="link-container">
+    <a target="_blank" href="/welcome" class="more-link">Go home</a>
 </div>
 
 

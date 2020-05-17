@@ -1,0 +1,106 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="container-fluid" style="margin-top: 10%;">
+    <h1 class="mt-4" th:text="#{computers}"></h1>
+    <div class="row">
+
+                        <div class="card mb-4" style="width: 100%;">
+                            <div class="card-header" style="width: 100%;" ><em class="fas fa-table mr-1"></em></div>
+                            <div class="card-body" style="width: 100%;" >
+                                <div class="table-responsive" style="width: 100%;">
+                                    <table class="table table-bordered" id="dataTable" name="bills" width="100%"  cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th th:text="#{id}"></th>
+                                            <th th:text="#{laptop.name}"></th>
+                                            <th th:text="#{processorFrequency}"></th>
+                                            <th th:text="#{quantityOfKernel}"></th>
+                                            <th th:text="#{computerDataStorage}"></th>
+                                            <th th:text="#{computerMemory}"></th>
+                                            <th th:text="#{screen}"></th>
+                                            <th th:text="#{weight}"></th>
+                                            <th th:text="#{battery}"></th>
+
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th th:text="#{id}"></th>
+                                            <th th:text="#{laptop.name}"></th>
+                                            <th th:text="#{processorFrequency}"></th>
+                                            <th th:text="#{quantityOfKernel}"></th>
+                                            <th th:text="#{computerDataStorage}"></th>
+                                            <th th:text="#{computerMemory}"></th>
+                                            <th th:text="#{screen}"></th>
+                                            <th th:text="#{weight}"></th>
+                                            <th th:text="#{battery}"></th>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        <!--/*@thymesVar id="results" type="java"*/-->
+                                        <th:block th:each="result : ${results}">
+                                            <tr>
+                                                <td th:text="${result.id}"></td>
+                                                <td></td>
+
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+
+                                                <td><a href="${pageContext.request.contextPath}/app/pay?bill=${report.id}">
+                                                    <c:out value="${report.totalValue}"/></a></td>
+
+                                                <td><c:out value="${report.order.localDateTime}"/></td>
+                                            </tr>
+                                        </th:block>
+                                        </tbody>
+                                    </table>
+
+
+                                    <nav>
+                                        <ul class="pagination ">
+
+                                            <c:if test="${currentPage != 1}">
+                                                <li class="page-item">
+                                                    <a class="page-link"
+                                                       href="${pageContext.request.contextPath}/app/personal-cabinet?currentPage=${currentPage - 1}">
+                                                        <fmt:message key="label.prev"/>
+                                                    </a>
+                                                </li>
+                                            </c:if>
+
+
+                                            <c:forEach begin="1" end="${noOfPages}" var="i">
+                                                <c:choose>
+                                                    <c:when test="${currentPage eq i}">
+                                                        <li class="page-item active">
+                                                            <a class="page-link"
+                                                               href="#"> ${i} </a>
+                                                        </li>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <li class="page-item">
+                                                            <a class="page-link"
+                                                               href="${pageContext.request.contextPath}/app/personal-cabinet?currentPage=${i}">${i}</a>
+                                                        </li>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:forEach>
+
+
+                                            <c:if test="${currentPage lt noOfPages}">
+                                                <li class="page-item"><a class="page-link"
+                                                                         href="${pageContext.request.contextPath}/app/personal-cabinet?currentPage=${currentPage + 1}">
+                                                    <fmt:message key="label.next"/>
+                                                </a>
+                                                </li>
+                                            </c:if>
+                                        </ul>
+                                    </nav>
+
+                                </div>
+                            </div>
+                        </div>
+    </div>
+
+</div>
+</html>
