@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{create.new.item}" ></title>
+</head>
+<body>
+
+<div class="bg-light" th:include="header.html">
+</div>
+<main>
+    <div class="col-xl-6">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4" th:text="#{order.delivery}"></h3></div>
+                    <div class="card-body">
+                        <form role="form" method="post"
+                              th:action="@{/make-order}">
+
+                            <div class="form-group">
+                                <label for="departure" th:text="#{departure}"></label>
+                                <select class="form-control" id="departure" name="departure">
+                                    <!--                                                <c:forEach items="${towns}" var="town">-->
+                                    <!--                                                    <option> ${town} </option>-->
+                                    <!--                                                </c:forEach>-->
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="destination" th:text="#{destination}"></label>
+                                <select class="form-control" id="destination" name="destination">
+                                    <!--                                                <c:forEach items="${towns}" var="town">-->
+                                    <!--                                                    <option><c:out value="${town}"/></option>-->
+                                    <!--                                                </c:forEach>-->
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="material" th:text="#{shipment.material}"></label>
+                                <select class="form-control" id="material" name="material">
+                                    <!--                                                <c:forEach items="${materials}" var="material">-->
+                                    <!--                                                    <option><c:out value="${material}"/></option>-->
+                                    <!--                                                </c:forEach>-->
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-3 mb-4">
+                                    <label for="weight" th:text="#{weight}"></label>
+                                    <input type="number" class="form-control" name="weight" id="weight"
+                                           min="0" th:placeholder="#{weight}" required>
+                                    <div class="invalid-feedback" th:text="#{please.provide.valid.value}"></div>
+                                </div>
+                                <div class="col-md-3 mb-4">
+                                    <label for="width" th:text="#{width}"></label>
+                                    <input type="number" class="form-control" name="width" id="width"
+                                           min="0" th:placeholder="#{width}" required>
+                                    <div class="invalid-feedback" th:text="#{please.provide.valid.value}">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-4">
+                                    <label for="length" th:text="#{length}"></label>
+                                    <input type="number" class="form-control" id="length" name="length"
+                                           min="0" th:placeholder="#{length}" required>
+                                    <div class="invalid-feedback" th:text="#{please.provide.valid.value}">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 mb-4">
+                                    <label for="height"  th:text="#{height}"></label>
+                                    <input type="number" class="form-control" id="height" name="height"
+                                           min="0" th:placeholder="#{height}" required>
+                                    <div class="invalid-feedback" th:text="#{please.provide.valid.value}">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address" th:text="#{address}"></label>
+                                    <input class="form-control" id="address" name="address" type="text" th:placeholder="#{delivery.order}">
+                                </div>
+                                <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"
+                                     style="width: 100%;">
+                                    <button type="submit" class="btn btn-primary" th:text="#{delivery.order}">
+
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

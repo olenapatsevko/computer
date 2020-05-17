@@ -1,6 +1,6 @@
 package computer.entity;
 
-import computer.exceptions.annotations.Call;
+
 import lombok.*;
 
 import javax.persistence.*;

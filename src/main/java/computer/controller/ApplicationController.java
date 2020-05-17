@@ -27,26 +27,20 @@ private LaptopService laptopService;
         laptopService.deleteLaptop(id);
         return REDIRECT_RESULTS;
     }
+
+    @GetMapping("/edit/{id}")
+   public String editResult(@PathVariable Long id, Model model) {
+   //    CalculationResult calculationResult = applicationFacade.populateResultById(id);
+   //   model.addAttribute("calculationResult", calculationResult);
+      return "update";
+    }
+
+    @GetMapping("/create")
+    public String createComputer(){
+
+        return "create";
+    }
+
 }
 
 
-//    @GetMapping("/abs")
-//    public String absForm(Model model) {
-//        return "abs";
-//    }
-//
-//    @GetMapping("/add")
-//    public String addForm(Model model) {
-//        return "add";
-//    }
-//
-//    @GetMapping("/mul")
-//    public String mulForm(Model model) {
-//        return "mul";
-//    }
-//    @GetMapping("/edit/{id}")
-//    public String editResult(@PathVariable Long id, Model model) {
-//        CalculationResult calculationResult = applicationFacade.populateResultById(id);
-//        model.addAttribute("calculationResult", calculationResult);
-//        return "update";
-//    }
