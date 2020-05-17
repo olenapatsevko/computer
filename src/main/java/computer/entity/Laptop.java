@@ -24,9 +24,16 @@ public class Laptop  {
     private double weight;
     private double battery;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "computer_id", referencedColumnName = "id")
     private Computer computer;
 
-
+    public Laptop(double screen , double weight, double battery, Computer computer) {
+        this.battery= battery;
+        this.computer= computer;
+        this.weight= weight;
+        this.computer=computer;
+        this.screen= screen;
     }
+}
 

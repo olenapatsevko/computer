@@ -1,7 +1,9 @@
 package computer.controller;
 
 
+import computer.service.CreateService;
 import computer.service.LaptopService;
+import dto.Laptop;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class ApplicationController {
 
-private LaptopService laptopService;
+    private LaptopService laptopService;
+    private CreateService createService;
 
     private static final String REDIRECT_RESULTS = "redirect:/welcome";
 
@@ -28,16 +31,21 @@ private LaptopService laptopService;
         return REDIRECT_RESULTS;
     }
 
-    @GetMapping("/edit/{id}")
-   public String editResult(@PathVariable Long id, Model model) {
-   //    CalculationResult calculationResult = applicationFacade.populateResultById(id);
-   //   model.addAttribute("calculationResult", calculationResult);
-      return "update";
+    @PutMapping("/edit/{id}")
+   public String editResult(@PathVariable Long id) {
+
+        return "update";
     }
 
-    @GetMapping("/create")
-    public String createComputer(){
 
+    @GetMapping("/create")
+    public String createComputer() {
+        return "create";
+    }
+
+    @PostMapping("/create")
+    public String createComputer(@ModelAttribute("laptop") Laptop model) {
+        createService.insertLaptop(model);
         return "create";
     }
 

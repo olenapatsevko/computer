@@ -14,14 +14,14 @@ import java.util.List;
 public class LaptopService {
 
 
-   private  LaptopRepository laptopRepository;
+    private LaptopRepository laptopRepository;
 
 
-  public  List<Laptop> getAllLaptops(){
+    public List<Laptop> getAllLaptops() {
         return Lists.newArrayList(laptopRepository.findAll());
     }
 
-    public void deleteLaptop(long id){
-      laptopRepository.deleteById(id);
+    public void deleteLaptop(long id) {
+        laptopRepository.deleteById(id);
     }
 }

@@ -30,6 +30,13 @@ public class Computer {
     @OneToOne(mappedBy = "computer")
     private Laptop laptop;
 
+   public  Computer(String name, int processorFrequency, int quantityOfKernel, int computerDataStorage, int computerMemory){
+       this.name = name;
+       this.processorFrequency= processorFrequency;
+       this.quantityOfKernel= quantityOfKernel;
+       this.computerDataStorage= computerDataStorage;
+       this.computerMemory = computerMemory;
+   }
 
 }
 
