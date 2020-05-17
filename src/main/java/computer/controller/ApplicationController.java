@@ -32,8 +32,8 @@ public class ApplicationController {
     }
 
     @GetMapping("/edit/{id}")
-   public String editResult(@PathVariable Long id, Model model) {
-        
+   public String editResult(@PathVariable Long id, @ModelAttribute("laptop") Laptop model) {
+
         return "update";
     }
 
