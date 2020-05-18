@@ -1,6 +1,5 @@
 package computer.entity;
 
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

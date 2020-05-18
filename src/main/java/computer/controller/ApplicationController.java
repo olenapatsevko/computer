@@ -1,6 +1,5 @@
 package computer.controller;
 
-
 import computer.dto.ComputerDTO;
 import computer.dto.LaptopDTO;
 import computer.service.CreateService;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 @Controller
@@ -46,7 +44,6 @@ public class ApplicationController {
         editService.editElement(laptop);
         return REDIRECT_RESULTS;
     }
-
 
     @GetMapping("/create")
     public String createComputer() {

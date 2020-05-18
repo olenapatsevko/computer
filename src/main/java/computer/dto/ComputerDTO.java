@@ -1,6 +1,5 @@
 package computer.dto;
 
-
 import computer.entity.Computer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +14,7 @@ public class ComputerDTO {
 
     private long id;
     private long computerId;
+
     private String name;
     private int processorFrequency;
     private int quantityOfKernel;
@@ -24,7 +24,6 @@ public class ComputerDTO {
     private double screen;
     private double weight;
     private double battery;
-
 
     public computer.entity.Laptop getLaptop() {
         return new computer.entity.Laptop(id, screen, weight, battery, getComputer());

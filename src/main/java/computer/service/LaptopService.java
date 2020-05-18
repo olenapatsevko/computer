@@ -13,9 +13,7 @@ import java.util.List;
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class LaptopService {
 
-
     private LaptopRepository laptopRepository;
-
 
     public List<Laptop> getAllLaptops() {
         return Lists.newArrayList(laptopRepository.findAll());

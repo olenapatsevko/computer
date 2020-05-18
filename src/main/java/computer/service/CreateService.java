@@ -1,6 +1,5 @@
 package computer.service;
 
-
 import computer.dto.LaptopDTO;
 import computer.repositories.ComputerRepository;
 import computer.repositories.LaptopRepository;
@@ -14,7 +13,6 @@ public class CreateService {
 
     private LaptopRepository laptopRepository;
     private ComputerRepository computerRepository;
-
 
     public void insertLaptop(LaptopDTO laptopDTO) {
         computer.entity.Laptop laptop1 = laptopDTO.getLaptop();

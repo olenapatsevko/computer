@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 @Scope(scopeName = "prototype")
 public class LaptopDTO {
 
-
     private String name;
     private int processorFrequency;
     private int quantityOfKernel;
@@ -24,7 +23,6 @@ public class LaptopDTO {
     private double screen;
     private double weight;
     private double battery;
-
 
     public computer.entity.Laptop getLaptop(){
         return  new computer.entity.Laptop(screen, weight, battery, getComputer());
