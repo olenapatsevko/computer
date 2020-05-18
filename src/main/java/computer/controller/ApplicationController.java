@@ -32,9 +32,9 @@ public class ApplicationController {
     }
 
     @GetMapping("/edit/{id}")
-   public String editResult(@PathVariable Long id, @ModelAttribute("laptop") Laptop model) {
-
-        return "update";
+   public String editResult(@PathVariable Long id, Model model) {
+    model.addAttribute("id", id);
+        return "edit";
     }
 
 
@@ -48,6 +48,7 @@ public class ApplicationController {
         createService.insertLaptop(model);
         return "create";
     }
+
 
 }
 

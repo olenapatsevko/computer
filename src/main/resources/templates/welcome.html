@@ -62,30 +62,30 @@
                             <th:block th:each="result : ${results}">
                                 <tr>
                                 <tr>
-                                    <td th:text="${result.id}" > </td>
-                                    <td th:text="${result.computer.name}"> </td>
-                                    <td th:text="${result.computer.processorFrequency}"> </td>
-                                    <td th:text="${result.computer.quantityOfKernel}"> </td>
-                                    <td th:text="${result.computer.computerDataStorage}"> </td>
-                                    <td th:text="${result.computer.computerMemory}"> </td>
-                                    <td th:text="${result.screen}"> </td>
-                                    <td th:text="${result.weight}"> </td>
-                                    <td th:text="${result.battery}"> </td>
-                                    <td ><form id="removeForm" method="post" th:action="@{/delete/{resultId}(resultId=${result.id})}">
-                                        <input name="_method" type="hidden" value="DELETE">
-                                        <input name="id" th:value="${result.id}" type="hidden"/>
-                                        <input class="border border-primary rounded bg-primary text-light" th:value="#{form.remove}"
-                                               type="submit">
-                                    </form></td>
-
-                                <td>
-                                    <form id="editForm" method="post" th:action="@{/edit/{resultId}(resultId=${result.id})}">
-                                        <input name="_method" type="hidden" value="GET">
-                                        <input name="id" th:value="${result.id}" type="hidden"/>
-                                        <input class="border border-primary rounded bg-primary text-light" th:value="#{form.edit}"
-                                               type="submit">
-                                    </form>
-
+                                    <td th:text="${result.id}"></td>
+                                    <td th:text="${result.computer.name}"></td>
+                                    <td th:text="${result.computer.processorFrequency}"></td>
+                                    <td th:text="${result.computer.quantityOfKernel}"></td>
+                                    <td th:text="${result.computer.computerDataStorage}"></td>
+                                    <td th:text="${result.computer.computerMemory}"></td>
+                                    <td th:text="${result.screen}"></td>
+                                    <td th:text="${result.weight}"></td>
+                                    <td th:text="${result.battery}"></td>
+                                    <td>
+                                        <form id="removeForm" method="post"
+                                              th:action="@{/delete/{resultId}(resultId=${result.id})}">
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <input name="id" th:value="${result.id}" type="hidden"/>
+                                            <input class="border border-primary rounded bg-primary text-light"
+                                                   th:value="#{form.remove}"
+                                                   type="submit">
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <button class="border border-primary rounded bg-primary text-light">
+                                            <a class="border border-primary rounded bg-primary text-light" th:text="#{form.edit}"
+                                               th:href="@{/edit/{resultId}(resultId=${result.id})}"></a></button>
+                                    </td>
                                 </tr>
                                 </tr>
                             </th:block>
