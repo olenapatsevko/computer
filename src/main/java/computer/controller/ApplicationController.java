@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import sun.text.normalizer.NormalizerBase;
 
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 @Controller
@@ -33,8 +34,14 @@ public class ApplicationController {
 
     @GetMapping("/edit/{id}")
    public String editResult(@PathVariable Long id, Model model) {
-    model.addAttribute("id", id);
+    model.addAttribute("laptop", laptopService.getLaptop(id));
         return "edit";
+    }
+
+    @PostMapping("/edit")
+    public String editElement(Model model){
+
+        return REDIRECT_RESULTS;
     }
 
 

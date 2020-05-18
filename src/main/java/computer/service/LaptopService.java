@@ -24,4 +24,8 @@ public class LaptopService {
     public void deleteLaptop(long id) {
         laptopRepository.deleteById(id);
     }
+
+    public Laptop getLaptop(Long id) {
+        return laptopRepository.findById(id).orElse(Lists.newArrayList(laptopRepository.findAll()).get(0));
+    }
 }
