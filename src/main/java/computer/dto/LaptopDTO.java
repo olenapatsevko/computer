@@ -1,14 +1,18 @@
-package dto;
+package computer.dto;
 
 import computer.entity.Computer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Component
-public class Laptop {
+@Scope(scopeName = "prototype")
+public class LaptopDTO {
 
 
     private String name;

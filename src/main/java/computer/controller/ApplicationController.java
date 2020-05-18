@@ -1,15 +1,17 @@
 package computer.controller;
 
 
+import computer.dto.ComputerDTO;
+import computer.dto.LaptopDTO;
 import computer.service.CreateService;
+import computer.service.EditService;
 import computer.service.LaptopService;
-import dto.Laptop;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import sun.text.normalizer.NormalizerBase;
+
 
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 @Controller
@@ -17,6 +19,7 @@ public class ApplicationController {
 
     private LaptopService laptopService;
     private CreateService createService;
+    private EditService editService;
 
     private static final String REDIRECT_RESULTS = "redirect:/welcome";
 
@@ -39,8 +42,8 @@ public class ApplicationController {
     }
 
     @PostMapping("/edit")
-    public String editElement(Model model){
-
+    public String editElement(@ModelAttribute("laptop") ComputerDTO laptop) {
+        editService.editElement(laptop);
         return REDIRECT_RESULTS;
     }
 
@@ -51,8 +54,8 @@ public class ApplicationController {
     }
 
     @PostMapping("/create")
-    public String createComputer(@ModelAttribute("laptop") Laptop model) {
-        createService.insertLaptop(model);
+    public String createComputer(@ModelAttribute("laptop") LaptopDTO laptop) {
+        createService.insertLaptop(laptop);
         return "create";
     }
 

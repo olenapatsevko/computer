@@ -34,7 +34,7 @@
                                 <label for="processorFrequency" th:text="#{processorFrequency}"></label>
                                 <input type="number" class="form-control" name="processorFrequency"
                                        id="processorFrequency"
-                                       min="0" th:placeholder="#{processorFrequency}" required>
+                                       min="0" max="9999" th:placeholder="#{processorFrequency}" required>
                                 <div class="invalid-feedback" th:text="#{please.provide.valid.value}"></div>
                             </div>
 
@@ -43,7 +43,7 @@
                                 <label for="quantityOfKernel" th:text="#{quantityOfKernel}"></label>
                                 <input type="number" class="form-control" id="quantityOfKernel"
                                        name="quantityOfKernel"
-                                       min="0" th:placeholder="#{quantityOfKernel}" required>
+                                       min="0" max="9999" th:placeholder="#{quantityOfKernel}" required>
                                 <div class="invalid-feedback" th:text="#{please.provide.valid.value}">
 
                                 </div>
@@ -53,7 +53,7 @@
                                 <label for="computerDataStorage" th:text="#{computerDataStorage}"></label>
                                 <input type="number" class="form-control" id="computerDataStorage"
                                        name="computerDataStorage"
-                                       min="0" th:placeholder="#{computerDataStorage}" required>
+                                       min="0" max="9999" th:placeholder="#{computerDataStorage}" required>
                                 <div class="invalid-feedback" th:text="#{please.provide.valid.value}">
 
                                 </div>
@@ -62,7 +62,7 @@
                             <div class="form-group">
                                 <label for="computerMemory" th:text="#{computerMemory}"></label>
                                 <input type="number" class="form-control" id="computerMemory" name="computerMemory"
-                                       min="0" th:placeholder="#{computerMemory}" required>
+                                       min="0" max="9999" th:placeholder="#{computerMemory}" required>
                                 <div class="invalid-feedback" th:text="#{please.provide.valid.value}">
 
                                 </div>
@@ -70,24 +70,24 @@
 
                             <div class="form-group">
                                 <label for="screen" th:text="#{screen}"></label>
-                                <input type="number" class="form-control" id="screen" name="screen"
-                                       min="0" th:placeholder="#{screen}" required>
+                                <input type="number" step="0.01" class="form-control" id="screen" name="screen"
+                                       min="0" max="9999" th:placeholder="#{screen}" required>
                                 <div class="invalid-feedback" th:text="#{please.provide.valid.value}">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="battery" th:text="#{battery}"></label>
-                                <input type="number" class="form-control" id="battery" name="battery"
-                                       min="0" th:placeholder="#{battery}" required>
+                                <input type="number" step="0.01" class="form-control" id="battery" name="battery"
+                                       min="0" max="9999" th:placeholder="#{battery}" required>
                                 <div class="invalid-feedback" th:text="#{please.provide.valid.value}">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="weight" th:text="#{weight}"></label>
-                                <input type="number" class="form-control" name="weight" id="weight"
-                                       min="0" th:placeholder="#{weight}" required>
+                                <input type="number" step="0.01" class="form-control" name="weight" id="weight"
+                                       min="0" max="9999" th:placeholder="#{weight}" required>
                                 <div class="invalid-feedback" th:text="#{please.provide.valid.value}">
                                 </div>
                             </div>

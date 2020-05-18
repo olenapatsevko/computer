@@ -1,9 +1,9 @@
 package computer.service;
 
 
+import computer.dto.LaptopDTO;
 import computer.repositories.ComputerRepository;
 import computer.repositories.LaptopRepository;
-import dto.Laptop;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,9 +16,9 @@ public class CreateService {
     private ComputerRepository computerRepository;
 
 
-    public void insertLaptop(Laptop laptop) {
-        computer.entity.Laptop laptop1 = laptop.getLaptop();
-        laptop1.setComputer(computerRepository.save(laptop.getComputer()));
+    public void insertLaptop(LaptopDTO laptopDTO) {
+        computer.entity.Laptop laptop1 = laptopDTO.getLaptop();
+        laptop1.setComputer(computerRepository.save(laptopDTO.getComputer()));
         laptopRepository.save(laptop1);
 
     }

@@ -1,7 +1,10 @@
 package computer.entity;
 
 
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -28,12 +31,21 @@ public class Laptop  {
     @JoinColumn(name = "computer_id", referencedColumnName = "id")
     private Computer computer;
 
-    public Laptop(double screen , double weight, double battery, Computer computer) {
-        this.battery= battery;
-        this.computer= computer;
-        this.weight= weight;
-        this.computer=computer;
-        this.screen= screen;
+    public Laptop(double screen, double weight, double battery, Computer computer) {
+        this.battery = battery;
+        this.computer = computer;
+        this.weight = weight;
+        this.computer = computer;
+        this.screen = screen;
+    }
+
+    public Laptop(long id, double screen, double weight, double battery, Computer computer) {
+        this.id = id;
+        this.battery = battery;
+        this.computer = computer;
+        this.weight = weight;
+        this.computer = computer;
+        this.screen = screen;
     }
 }
 
